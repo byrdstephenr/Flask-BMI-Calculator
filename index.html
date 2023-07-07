@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #444444;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>BMI Calculator</h1>
+    <form method="POST" action="/">
+        <label for="weight">Weight (kg):</label>
+        <input type="number" step="0.01" name="weight" required><br><br>
+
+        <label for="height">Height (m):</label>
+        <input type="number" step="0.01" name="height" required><br><br>
+
+        <input type="submit" value="Calculate BMI">
+    </form>
+
+    {% if bmi %}
+    <p>Your BMI is: {{ bmi }} {{ emoji }}</p>
+    {% endif %}
+
+    <script>
+        // Automatically focus on the weight input field when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('input[name="weight"]').focus();
+        });
+    </script>
+</body>
+</html>
